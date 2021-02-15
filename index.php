@@ -112,9 +112,9 @@ else if(checkippis_real($text)){
 else if (checkconfirmation($text)) {
     // $response = "END  Good SEND TO FOLA.".$text." \n";
     $response = "CON Enter 00 key to Confirm. \n";
-    $response .= " Amount ".getdata($text)[1]." \n";
-    $response .= " Duration ".getdata($text)[2]." Months \n";
-    $response .= " Ippis Number ".getdata($text)[4]."\n";
+    $response .= " Amount: ".getdata($text)[1]." \n";
+    $response .= " Duration: ".getdata($text)[2]." Months \n";
+    $response .= " Ippis Number: ".empty(getdata($text)[4]) ? 'Not applicable' : getdata($text)[4]."\n";
 }
 
 
