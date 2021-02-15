@@ -27,6 +27,10 @@ function checkippis($text){
         return true;
     }
 }
+function getdata($text){
+    $data = explode('*', $text);
+    return $data;
+}
 
 if ( $text == "" ) {
     $response  = "CON Hi welcome to credit wallet ussd potal application.  \n";
@@ -47,14 +51,16 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (checkippis($text)) {
-    $response = "END Enter Ippis Number \n";
-    // $response .= "Please Enter 1 to confirm .$text. \n";
+    $response = "CON Enter 1 to Confirm. \n";
+    $response .= " Amount ".getdata($text)[1]." \n";
+    $response .= " Duration ".getdata($text)[2]." Months \n";
+    $response .= " Ippis Number ".getdata($text)[3]."\n";
 }
 
 
 else if (checkduration($text)) {
     $response = "CON Enter Ippis Number \n";
-    $response .= "Please Enter 1 to confirm .$text. \n";
+    // $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
 else if (checkamount($text)) {
