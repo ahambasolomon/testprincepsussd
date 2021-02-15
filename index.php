@@ -40,9 +40,11 @@ function getdata($text){
 }
 
 if ( $text == "" ) {
-    $response  = "CON Hi welcome to credit wallet ussd potal application.  \n";
-    $response .= "1. Enter 1 to apple for loan \n";
-    $response .= "2. Enter 2 for loan liquidation \n";
+    $response  = "CON Hi, welcome to Credit Wallet Self-Service.  \n";
+    $response .= "1. Enter 1 to apply for loan. \n";
+    $response .= "2. Enter 2 for loan liquidation. \n";
+    $response .= "3. Enter 3 for loan balance. \n";
+    
 }
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
