@@ -21,6 +21,13 @@ function checkduration($text){
     }
 }
 
+function checkippis($text){
+    $data = explode('*', $text);
+    if(isset($data[3])){
+        return true;
+    }
+}
+
 if ( $text == "" ) {
     $response  = "CON Hi welcome to credit wallet ussd potal application.  \n";
     $response .= "1. Enter 1 to apple for loan \n";
@@ -39,6 +46,12 @@ else if ($text == "1") {
 }
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
+else if (checkippis($text)) {
+    $response = "END Enter Ippis Number ( 2 - 12 ) \n";
+    // $response .= "Please Enter 1 to confirm .$text. \n";
+}
+
+
 else if (checkduration($text)) {
     $response = "CON Enter Ippis Number ( 2 - 12 ) \n";
     $response .= "Please Enter 1 to confirm .$text. \n";
