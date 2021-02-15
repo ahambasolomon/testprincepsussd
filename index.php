@@ -29,8 +29,10 @@ function checkippis($text){
 }
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(isset($data[4]) && $data[1] == 1 ){
-        return true;
+    if(isset($data[4])){
+        if ($data[0] == 1) {
+            return true;
+        }
     }
 }
 
@@ -65,7 +67,7 @@ else if (checkconfirmation($text)) {
 
 
 else if (checkippis($text)) {
-    $response = "CON Enter any key to Confirm. $text \n";
+    $response = "CON Enter any key to Confirm. \n";
     $response .= " Amount ".getdata($text)[1]." \n";
     $response .= " Duration ".getdata($text)[2]." Months \n";
     $response .= " Ippis Number ".getdata($text)[3]."\n";
