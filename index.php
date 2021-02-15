@@ -49,12 +49,7 @@ if ( $text == "" ) {
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
 else if ($text == "1") {
-    if (getdata($text)[4] == 1) {
-        $response  = "CON Enter Amount \n";
-    } else {
-        $response = "END Thank you for trying.";
-    }
-    
+    $response  = "CON Enter Amount \n";
     // $amount = $text;
 
 // $response .= "1. Table for 2 \n";
@@ -65,7 +60,12 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (checkconfirmation($text)) {
-    $response = "END  Good SEND TO FOLA. \n";
+    if (getdata($text)[4] == 1) {
+        $response = "END  Good SEND TO FOLA. \n";
+    } else {
+        $response = "END Thank you for trying.";
+    }
+    
 }
 
 
