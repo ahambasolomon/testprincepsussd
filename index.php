@@ -48,7 +48,7 @@ function checkippis_realnote($text){
 
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(count($data) == 5 || count($data) == 4){
+    if(count($data) == 5 || count($data) == 6){
         if ($data[0] == 1) {
             return true;
         }
