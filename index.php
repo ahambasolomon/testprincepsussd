@@ -73,12 +73,16 @@ else if (checkippis($text)) {
 
 
 else if (checkduration($text)) {
-    $response = "CON Enter Ippis Number \n";
+    if (getdata($text)[2] < 12 && getdata($text)[2] > 1) {
+        $response = "CON Enter Ippis Number \n";
+    } else {
+        $response = "END Duration should be between 2 - 12 months";
+    }
     // $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
 else if (checkamount($text)) {
-$response = "CON Enter Duration (2 - 12 Months) \n";
+    $response = "CON Enter Duration (2 - 12 Months) \n";
 // $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
