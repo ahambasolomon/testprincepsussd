@@ -27,6 +27,16 @@ function checkippis($text){
         return true;
     }
 }
+
+function checkippis_real($text){
+    $data = explode("*", $text);
+    if (count($data) == 4) {
+        if (end($data) == 1) {
+            return true;
+        }
+    }
+}
+
 function checkconfirmation($text){
     $data = explode('*', $text);
     if(isset($data[4])){
@@ -65,14 +75,19 @@ else if (checkconfirmation($text)) {
     $response = "END  Good SEND TO FOLA.".$text." \n";
 }
 
+else if(checkippis_real($text)){
+    $response = "CON Enter IPPIS Number \n";
+    
+}
 
 else if (checkippis($text)) {
     //$response  = "CON $text  \n";
     $result = explode("*",$text);
-    if (count($result) == 5) {
-        $response  = "CON ippis  \n";
+    if ($result[3] == 1) {
+        //Another check to get ippis number
+
     }else{
-        $response  = "CON remita  \n";
+        //Go straight to confirmation page()
     }
     // $response = "CON $result[0]  \n";
     
