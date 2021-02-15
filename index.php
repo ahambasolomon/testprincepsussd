@@ -67,7 +67,9 @@ else if (checkconfirmation($text)) {
 
 
 else if (checkippis($text)) {
-    $response  = "CON $text  \n";
+    //$response  = "CON $text  \n";
+    $result = print_r(explode("*",$text));
+    $response = "CON $result  \n";
     
     // $response = "CON Enter any key to Confirm. \n";
     // $response .= " Amount ".getdata($text)[1]." \n";
