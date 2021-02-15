@@ -53,7 +53,7 @@ function finalconfirmation($text){
     //         return true;
     //     }
     // }
-    if (end($data) == 1) {
+    if (end($data) == 00) {
         array_pop($data);
         implode("*", $data);
         $datalink= explode('*', $text);
@@ -104,7 +104,7 @@ else if (finalconfirmation($text)){
 }
 else if (checkconfirmation($text)) {
     // $response = "END  Good SEND TO FOLA.".$text." \n";
-    $response = "CON Enter any key to Confirm. \n";
+    $response = "CON Enter 00 key to Confirm. \n";
     $response .= " Amount ".getdata($text)[1]." \n";
     $response .= " Duration ".getdata($text)[2]." Months \n";
     $response .= " Ippis Number ".getdata($text)[4]."\n";
