@@ -62,15 +62,18 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (checkconfirmation($text)) {
-    $response = "END  Good SEND TO FOLA. \n";
+    $response = "END  Good SEND TO FOLA.".$text." \n";
 }
 
 
 else if (checkippis($text)) {
-    $response = "CON Enter any key to Confirm. \n";
-    $response .= " Amount ".getdata($text)[1]." \n";
-    $response .= " Duration ".getdata($text)[2]." Months \n";
-    $response .= " Ippis Number ".getdata($text)[3]."\n";
+    $response  = "CON Do you have Ippis Number ?  \n";
+    $response .= "1. Yes. \n";
+    $response .= "2. No. \n";
+    // $response = "CON Enter any key to Confirm. \n";
+    // $response .= " Amount ".getdata($text)[1]." \n";
+    // $response .= " Duration ".getdata($text)[2]." Months \n";
+    // $response .= " Ippis Number ".getdata($text)[3]."\n";
 }
 
 
