@@ -9,7 +9,7 @@ $amount;
 
 function checkamount($text){
     $data = explode('*', $text);
-    if(!empty($data[1]) && $data[0] == 1){
+    if($data[1] == " " && $data[0] == 1){
         return true;
     }
 }
