@@ -16,7 +16,6 @@ if ( $text == "" ) {
 else if ($text == "1") {
     $response  = "CON Enter amount \n";
     $amount = $text;
-    $response .= "END ".$amount;
 // $response .= "1. Table for 2 \n";
 // $response .= "2. Table for 4 \n";
 // $response .= "3. Table for 6 \n";
