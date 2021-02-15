@@ -6,6 +6,14 @@ $text = $_POST["text"];
 $phone = $_POST["phoneNumber"];
 $amount;
 //This is the first menu screen
+
+function checkamount($text){
+    $data = explode('*', $text);
+    if(isset($data[1])){
+        return true;
+    }
+}
+
 if ( $text == "" ) {
     $response  = "CON Hi welcome to credit wallet ussd potal application.  \n";
     $response .= "1. Enter 1 to apple for loan \n";
@@ -15,7 +23,8 @@ if ( $text == "" ) {
 // Will be brought to this second menu screen
 else if ($text == "1") {
     $response  = "CON Enter amount \n";
-    $amount = $text;
+    // $amount = $text;
+
 // $response .= "1. Table for 2 \n";
 // $response .= "2. Table for 4 \n";
 // $response .= "3. Table for 6 \n";
@@ -23,9 +32,9 @@ else if ($text == "1") {
 }
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
-else if ($text == "1*1") {
+else if (checkamount($text)) {
 $response = "CON You are about to book a table for 2 \n";
-$response .= "Please Enter 1 to confirm \n";
+$response .= "Please Enter 1 to confirm .$text. \n";
 }
 else if ($text == "1*1*1") {
 $response = "CON Table for 2 cost -N- 50,000.00 \n";
