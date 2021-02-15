@@ -37,14 +37,14 @@ function checkippis_real($text){
     }
 }
 
-function checkippis_realnote($text){
-    $data = explode("*", $text);
-    if (count($data) == 4) {
-        if (end($data) != 1) {
-            return true;
-        }
-    }
-}
+// function checkippis_realnote($text){
+//     $data = explode("*", $text);
+//     if (count($data) == 4) {
+//         if (end($data) != 1) {
+//             return true;
+//         }
+//     }
+// }
 
 function finalconfirmation($text){
     $data = explode('*', $text);
@@ -68,7 +68,7 @@ function finalconfirmation($text){
 
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(count($data) == 4 || count($data) == 6){
+    if(count($data) == 4 || count($data) == 5){
         if ($data[0] == 1) {
             return true;
         }
@@ -103,6 +103,12 @@ else if ($text == "1") {
 else if (finalconfirmation($text)){
     $response = "END  Good SEND TO FOLA.".$text." \n";
 }
+
+else if(checkippis_real($text)){
+    $response = "CON Enter IPPIS Number \n";
+
+}
+
 else if (checkconfirmation($text)) {
     // $response = "END  Good SEND TO FOLA.".$text." \n";
     $response = "CON Enter 00 key to Confirm. \n";
@@ -111,10 +117,6 @@ else if (checkconfirmation($text)) {
     $response .= " Ippis Number ".getdata($text)[4]."\n";
 }
 
-else if(checkippis_real($text)){
-    $response = "CON Enter IPPIS Number \n";
-
-}
 
 // elseif(checkippis_realnote($text)) {
     
