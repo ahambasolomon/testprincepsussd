@@ -37,9 +37,18 @@ function checkippis_real($text){
     }
 }
 
+function checkippis_realnote($text){
+    $data = explode("*", $text);
+    if (count($data) == 4) {
+        if (end($data) != 1) {
+            return true;
+        }
+    }
+}
+
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(isset($data[4])){
+    if(count($data) == 5 || count($data) == 4){
         if ($data[0] == 1) {
             return true;
         }
@@ -77,8 +86,12 @@ else if (checkconfirmation($text)) {
 
 else if(checkippis_real($text)){
     $response = "CON Enter IPPIS Number \n";
-    
+
 }
+
+// elseif(checkippis_realnote($text)) {
+    
+// }
 
 else if (checkippis($text)) {
     //$response  = "CON $text  \n";
