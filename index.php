@@ -9,21 +9,21 @@ $amount;
 
 function checkamount($text){
     $data = explode('*', $text);
-    if(isset($data[1]) && isset($data[0]) == 1){
+    if(isset($data[1]) && $data[0] == 1){
         return true;
     }
 }
 
 function checkduration($text){
     $data = explode('*', $text);
-    if(isset($data[2]) && isset($data[0]) == 1){
+    if(isset($data[2]) && $data[0] == 1){
         return true;
     }
 }
 
 function checkippis($text){
     $data = explode('*', $text);
-    if(isset($data[3]) && isset($data[0]) == 1){
+    if(isset($data[3]) && $data[0] == 1){
         return true;
     }
 }
