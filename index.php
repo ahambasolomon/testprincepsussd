@@ -69,13 +69,14 @@ else if (checkconfirmation($text)) {
 else if (checkippis($text)) {
     $response = "CON Enter any key to Confirm. \n";
     $response .= " Amount ".getdata($text)[1]." \n";
-    $response .= " Duration ".getdata($text)[2]." Months \n";
+    $response .= " Duration ".getdata($text)[2]." ".$_POST['duration']." Months \n";
     $response .= " Ippis Number ".getdata($text)[3]."\n";
 }
 
 
 else if (checkduration($text)) {
     if (getdata($text)[2] < 12 && getdata($text)[2] > 1) {
+        $_POST["duration"] = 30;
         $response = "CON Enter Ippis Number \n";
     } else {
         $response = "END Duration should be between 2 - 12 months";
