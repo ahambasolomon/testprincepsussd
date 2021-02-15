@@ -98,22 +98,11 @@ else if ($text == "1") {
 // $response .= "3. Table for 6 \n";
 // $response .= "4. Table for 8 \n";
 }
-else if (checkamount($text)) {
-    $response = "CON Enter Duration (2 - 12 Months) \n";
-// $response .= "Please Enter 1 to confirm .$text. \n";
+//Menu for a user who selects '1' from the second menu above
+// Will be brought to this third menu screen
+else if (finalconfirmation($text)){
+    $response = "END  Good SEND TO FOLA.".$text." \n";
 }
-
-else if (checkduration($text)) {
-    if (getdata($text)[2] < 12 && getdata($text)[2] > 1) {
-        $response = "CON Do you Have Ippis Number \n";
-        $response .= "1. Yes. \n";
-        $response .= "2. No. \n";
-    } else {
-        $response = "END Duration should be between 2 - 12 months";
-    }
-    // $response .= "Please Enter 1 to confirm .$text. \n";
-}
-
 
 else if(checkippis_real($text)){
     $response = "CON Enter IPPIS Number \n";
@@ -127,14 +116,6 @@ else if (checkconfirmation($text)) {
     $response .= " Amount: ".getdata($text)[1]." \n";
     $response .= " Duration: ".getdata($text)[2]." Months \n";
     $response .= " Ippis Number: ".$ippis_result." \n";
-}
-
-
-
-//Menu for a user who selects '1' from the second menu above
-// Will be brought to this third menu screen
-else if (finalconfirmation($text)){
-    $response = "END  Good SEND TO FOLA.".$text." \n";
 }
 
 
@@ -160,8 +141,21 @@ else if (checkippis($text)) {
 }
 
 
+else if (checkduration($text)) {
+    if (getdata($text)[2] < 12 && getdata($text)[2] > 1) {
+        $response = "CON Do you Have Ippis Number \n";
+        $response .= "1. Yes. \n";
+        $response .= "2. No. \n";
+    } else {
+        $response = "END Duration should be between 2 - 12 months";
+    }
+    // $response .= "Please Enter 1 to confirm .$text. \n";
+}
 
-
+else if (checkamount($text)) {
+    $response = "CON Enter Duration (2 - 12 Months) \n";
+// $response .= "Please Enter 1 to confirm .$text. \n";
+}
 
 
 
