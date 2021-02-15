@@ -39,15 +39,17 @@ else if ($text == "1") {
 }
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
+else if (checkduration($text)) {
+    $response = "CON Enter Ippis Number ( 2 - 12 ) \n";
+    $response .= "Please Enter 1 to confirm .$text. \n";
+}
+
 else if (checkamount($text)) {
 $response = "CON Enter Duration ( 2 - 12 ) \n";
 $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
-else if (checkduration($text)) {
-    $response = "CON Enter Ippis Number ( 2 - 12 ) \n";
-    $response .= "Please Enter 1 to confirm .$text. \n";
-}
+
 
 else if ($text == "1*1*1") {
 $response = "CON Table for 2 cost -N- 50,000.00 \n";
