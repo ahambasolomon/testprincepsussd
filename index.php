@@ -67,9 +67,8 @@ else if (checkconfirmation($text)) {
 
 
 else if (checkippis($text)) {
-    $response  = "CON Do you have Ippis Number ?  \n";
-    $response .= "1. Yes. \n";
-    $response .= "2. No. \n";
+    $response  = "CON $text  \n";
+    
     // $response = "CON Enter any key to Confirm. \n";
     // $response .= " Amount ".getdata($text)[1]." \n";
     // $response .= " Duration ".getdata($text)[2]." Months \n";
@@ -80,6 +79,8 @@ else if (checkippis($text)) {
 else if (checkduration($text)) {
     if (getdata($text)[2] < 12 && getdata($text)[2] > 1) {
         $response = "CON Do you Have Ippis Number \n";
+        $response .= "1. Yes. \n";
+        $response .= "2. No. \n";
     } else {
         $response = "END Duration should be between 2 - 12 months";
     }
