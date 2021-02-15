@@ -68,8 +68,13 @@ else if (checkconfirmation($text)) {
 
 else if (checkippis($text)) {
     //$response  = "CON $text  \n";
-    $result = print_r(explode("*",$text));
-    $response = "CON $result  \n";
+    $result = explode("*",$text);
+    if (count($result) == 5) {
+        $response  = "CON ippis  \n";
+    }else{
+        $response  = "CON remita  \n";
+    }
+    // $response = "CON $result[0]  \n";
     
     // $response = "CON Enter any key to Confirm. \n";
     // $response .= " Amount ".getdata($text)[1]." \n";
