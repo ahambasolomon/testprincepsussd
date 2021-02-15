@@ -27,6 +27,13 @@ function checkippis($text){
         return true;
     }
 }
+function checkconfirmation($text){
+    $data = explode('*', $text);
+    if(isset($data[4]) && $data[4] == 1){
+        return true;
+    }
+}
+
 function getdata($text){
     $data = explode('*', $text);
     return $data;
@@ -50,6 +57,11 @@ else if ($text == "1") {
 }
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
+else if (checkconfirmation($text)) {
+    $response = "END  Good SEND TO FOLA. \n";
+}
+
+
 else if (checkippis($text)) {
     $response = "CON Enter 1 to Confirm. \n";
     $response .= " Amount ".getdata($text)[1]." \n";
