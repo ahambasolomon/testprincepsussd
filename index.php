@@ -6,7 +6,7 @@ $text = $_POST["text"];
 $phone = $_POST["phoneNumber"];
 $amount;
 $duration;
-$step = 1;
+$_POST["step"] = 1;
 //This is the first menu screen
 
 function checkamount($text){
@@ -26,15 +26,15 @@ function checkduration($text) {
     }
 }
 
-if ( $step == 1 ) {
+if ( $_POST["step"] == 1 ) {
     $response  = "CON Hi welcome to credit wallet ussd potal application.  \n";
     $response .= "1. Enter 1 to apple for loan \n";
     $response .= "2. Enter 2 for loan liquidation \n";
-    $step = 2;
+    $_POST["step"] = 2;
 }
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
-else if ($step == 2) {
+else if ($_POST["step"] == 2) {
     $response  = "CON Enter Amount \n";
     $amount = checkamount($text);
     $step = 3;
