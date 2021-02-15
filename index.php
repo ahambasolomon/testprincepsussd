@@ -122,7 +122,7 @@ else if (finalconfirmation($text)){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     $rez = curl_exec($ch);
-    $response = "END  sent s.".$text." \n";
+    $response = "END Loan Application Successful. ".$text." \n";
 }
 
 else if(checkippis_real($text)){
