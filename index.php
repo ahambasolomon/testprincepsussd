@@ -5,11 +5,21 @@ $serviceCode = $_POST["serviceCode"];
 $text = $_POST["text"];
 $phone = $_POST["phoneNumber"];
 $amount;
+$duration;
 //This is the first menu screen
 
 function checkamount($text){
     $data = explode('*', $text);
     if(isset($data[1])){
+        return true;
+    }
+}
+
+function checkduration($text) {
+    $data = explode('*', $text);
+    if(isset($data[1]) && isset($data[2])){
+        $_POST["amount"] = $data[1];
+        $_POST["duration"] = $data[2];
         return true;
     }
 }
@@ -22,7 +32,7 @@ if ( $text == "" ) {
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
 else if ($text == "1") {
-    $response  = "CON Enter amount \n";
+    $response  = "CON Enter Amount \n";
     // $amount = $text;
 
 // $response .= "1. Table for 2 \n";
@@ -33,9 +43,15 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (checkamount($text)) {
-$response = "CON You are about to book a table for 2 \n";
-$response .= "Please Enter 1 to confirm .$text. \n";
+$response = "CON Enter Duration ( 2 - 12 Months) \n";
+// $response .= "Please Enter 1 to confirm .$text. \n";
 }
+
+else if (checkduration($text)) {
+    $response = "CON Enter IPPIS Number ".$_POST['amount'].". \n";
+    // $response .= "Please Enter 1 to confirm .$text. \n";
+}
+
 else if ($text == "1*1*1") {
 $response = "CON Table for 2 cost -N- 50,000.00 \n";
 $response .= "Enter 1 to continue \n";
