@@ -48,9 +48,19 @@ function checkippis_realnote($text){
 
 function finalconfirmation($text){
     $data = explode('*', $text);
-    if((count($data)-1 == 4 || count($data)-1 == 6) && end($data) == 1){
-        if ($data[0] == 1) {
-            return true;
+    // if((count($data) == 4 || count($data) == 6) && end($data) == 1){
+    //     if ($data[0] == 1) {
+    //         return true;
+    //     }
+    // }
+    if (end($data) == 1) {
+        array_pop($data);
+        implode("*", $data);
+        $datalink= explode('*', $text);
+        if(count($datalink) == 4 || count($datalink) == 6){
+            if ($datalink[0] == 1) {
+                return true;
+            }
         }
     }
 }
