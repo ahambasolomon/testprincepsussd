@@ -49,7 +49,12 @@ if ( $text == "" ) {
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
 else if ($text == "1") {
-    $response  = "CON Enter Amount \n";
+    if (getdata($text)[4] == 1) {
+        $response  = "CON Enter Amount \n";
+    } else {
+        $response = "END Thank you for trying.";
+    }
+    
     // $amount = $text;
 
 // $response .= "1. Table for 2 \n";
