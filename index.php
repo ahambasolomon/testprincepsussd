@@ -29,7 +29,7 @@ function checkippis($text){
 }
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(isset($data[4]) && $data[4] == 1 ){
+    if(isset($data[4]) && $data[1] == 1 ){
         return true;
     }
 }
