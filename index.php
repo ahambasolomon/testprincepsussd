@@ -3,10 +3,12 @@
 $sessionId   = $_POST["sessionId"];  
 $serviceCode = $_POST["serviceCode"];  
 $text = $_POST["text"];
+$phone = $_POST["phoneNumber"];
 //This is the first menu screen
 if ( $text == "" ) {
-$response  = "CON Hi welcome, I can help you with Event Reservation \n";
-$response .= "1. Enter 1 to continue";
+$response  = "CON Hi welcome to credit wallet quick loan application.  \n";
+$response .= "1. Enter 1 to continue ".$phone;
+
 }
 // Menu for a user who selects '1' from the first menu
 // Will be brought to this second menu screen
