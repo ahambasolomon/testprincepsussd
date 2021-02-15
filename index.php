@@ -54,14 +54,15 @@ function finalconfirmation($text){
     //     }
     // }
     if (end($data) == 00) {
-        array_pop($data);
-        implode("*", $data);
-        $datalink= explode('*', $text);
-        if(count($datalink) == 4 || count($datalink) == 6){
-            if ($datalink[0] == 1) {
-                return true;
-            }
-        }
+        // array_pop($data);
+        // implode("*", $data);
+        // $datalink= explode('*', $text);
+        // if(count($datalink) == 4 || count($datalink) == 6){
+        //     if ($datalink[0] == 1) {
+        //         return true;
+        //     }
+        // }
+        return true;
     }
 }
 
