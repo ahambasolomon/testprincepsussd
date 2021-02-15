@@ -9,27 +9,27 @@ $amount;
 
 function checkamount($text){
     $data = explode('*', $text);
-    if(isset($data[1])){
+    if(isset($data[1]) && isset($data[0]) == 1){
         return true;
     }
 }
 
 function checkduration($text){
     $data = explode('*', $text);
-    if(isset($data[2])){
+    if(isset($data[2]) && isset($data[0]) == 1){
         return true;
     }
 }
 
 function checkippis($text){
     $data = explode('*', $text);
-    if(isset($data[3])){
+    if(isset($data[3]) && isset($data[0]) == 1){
         return true;
     }
 }
 function checkconfirmation($text){
     $data = explode('*', $text);
-    if(isset($data[4]) && $data[4] == 1){
+    if(isset($data[4]) && $data[4] == 1 ){
         return true;
     }
 }
