@@ -47,19 +47,19 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (checkippis($text)) {
-    $response = "END Enter Ippis Number ( 2 - 12 ) \n";
+    $response = "END Enter Ippis Number \n";
     // $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
 
 else if (checkduration($text)) {
-    $response = "CON Enter Ippis Number ( 2 - 12 ) \n";
+    $response = "CON Enter Ippis Number \n";
     $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
 else if (checkamount($text)) {
-$response = "CON Enter Duration ( 2 - 12 ) \n";
-$response .= "Please Enter 1 to confirm .$text. \n";
+$response = "CON Enter Duration (2 - 12 Months) \n";
+// $response .= "Please Enter 1 to confirm .$text. \n";
 }
 
 
