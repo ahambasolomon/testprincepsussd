@@ -96,7 +96,15 @@ function newcheckamount($text){
             return true;
         }
     }
+}
 
+function newcheckduration($text){
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 3) {
+            return true;
+        }
+    }
 }
 
 
@@ -117,11 +125,14 @@ else if ($text == "1") {  // after 1
 }
 
 else if (newcheckamount($text)) {  //  after amount 
-    $response  = "CON Enter Amount. \n";      
+    $response = "CON Enter duration (2 - 12 months)";
 }
 
-
-
+else if (newcheckduration($text)) {  //  after amount 
+    $response = "CON do you have IPPIS NUMBER \n";
+    $response .= "1. Yes. \n";
+    $response .= "2. No. \n";
+}
 
 
 
