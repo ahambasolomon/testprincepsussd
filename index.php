@@ -13,7 +13,7 @@
     $data = implode($_POST);
     $result   = $sms->send([
         'to'      => '+2349034426195',
-        'message' => 'Hello World insd sdins ! '.$data.' '
+        'message' => 'Hello World insd sdins sfcisdfosjdsojdo! '.$data.' '
     ]);
     
     print_r($result);
