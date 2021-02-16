@@ -103,7 +103,7 @@ else if ($text == "1") {
 else if (finalconfirmation($text)){
     $amount = getdata($text)[1];
     $tenur = getdata($text)[2];
-    $ippis_result = getdata($text)[4] == "none" ? ' ' : getdata($text)[4];
+    $ippis_result = getdata($text)[4] == "00" ? ' ' : getdata($text)[4];
 
 //     $request->telephone;
 // $request->loan_amount;
