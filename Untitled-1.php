@@ -101,7 +101,28 @@ else if ($text == "1") {
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (finalconfirmation($text)){
-    $response = "END  Good SEND TO FOLA.".$text." \n";
+    $amount = getdata($text)[1];
+    $tenur = getdata($text)[2];
+    $ippis_result = getdata($text)[4] == null ? ' ' : getdata($text)[4];
+
+//     $request->telephone;
+// $request->loan_amount;
+// $request->tenor;
+// $request->ippisnumber;
+
+    $data = [
+        'telephone' => $phone,
+        'loan_amount' => $amount,
+        'tenor'   => $tenur,
+        'ippisnumber' => $ippis_result
+    ];
+    $url = 'https://api.creditwallet.ng/Creditwallet/public/api/loans/apply/ussd';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    $rez = curl_exec($ch);
+    $response = "END Loan Application Successful. ".$text." \n";
 }
 
 else if(checkippis_real($text)){
