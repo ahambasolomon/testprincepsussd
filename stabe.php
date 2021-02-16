@@ -80,6 +80,55 @@ function getdata($text){
     return $data;
 }
 
+
+
+
+function splitopen($text){
+    $data = explode('*', $text);
+    return $data;
+}
+
+
+function newcheckamount($text){
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 2) {
+            return true;
+        }
+    }
+}
+
+function newcheckduration($text){
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 3) {
+            return true;
+        }
+    }
+}
+
+function newcheckyesippis($text){
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 4 && $data[3] == 1) {
+            return true;
+        }
+    }
+}
+
+function newchecknoippis($text) {
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 4 && $data[3] == 2) {
+            return true;
+        }
+    }
+}
+
+
+
+
+
 if ( $text == "" ) {
     $response  = "CON Hi, welcome to Credit Wallet Self-Service.  \n";
     $response .= "1. Enter 1 to apply for loan. \n";
@@ -87,17 +136,211 @@ if ( $text == "" ) {
     $response .= "3. Enter 3 for loan balance. \n";
     
 }
-// Menu for a user who selects '1' from the first menu
-// Will be brought to this second menu screen
-else if ($text == "1") {
-    $response  = "CON Enter Amount \n";
-    // $amount = $text;
 
-// $response .= "1. Table for 2 \n";
-// $response .= "2. Table for 4 \n";
-// $response .= "3. Table for 6 \n";
-// $response .= "4. Table for 8 \n";
+else if ($text == "1") {  // after 1
+    $response  = "CON Enter Amount \n";
 }
+
+else if (newcheckamount($text)) {  //  after amount 
+    $response = "CON Enter duration (2 - 12 months)";
+}
+
+else if (newcheckduration($text)) {  //  after amount 
+    if (splitopen($text)[2] < 12 && splitopen($text)[2] > 1) {
+        $response = "CON Do you Have Ippis Number \n";
+        $response .= "1. Yes. \n";
+        $response .= "2. No. \n";
+    } else {
+        $response = "END Duration should be between 2 - 12 months";
+    }
+}
+
+else if(newcheckyesippis($text)) {
+    $response = "CON  ENTER IPPIS NUMBER. \n";
+    
+}
+
+else if(newchecknoippis($text)) {
+    $response = "CON  no ippis $text \n";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Menu for a user who selects '1' from the second menu above
 // Will be brought to this third menu screen
 else if (finalconfirmation($text)){
@@ -122,7 +365,7 @@ else if (finalconfirmation($text)){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     $rez = curl_exec($ch);
-    $response = "END Loan Application Successful. ".$text." \n";
+    $response = "END Loan Application Successful.\n";
 }
 
 else if(checkippis_real($text)){
