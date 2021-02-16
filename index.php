@@ -107,6 +107,23 @@ function newcheckduration($text){
     }
 }
 
+function newcheckyesippis($text){
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 4 && $data[3] == 1) {
+            return true;
+        }
+    }
+}
+
+function newchecknoippis($text) {
+    $data = splitopen($text);
+    if ($data[0]  == 1) {
+        if (count($data) == 4 && $data[3] == 2) {
+            return true;
+        }
+    }
+}
 
 
 
@@ -129,11 +146,22 @@ else if (newcheckamount($text)) {  //  after amount
 }
 
 else if (newcheckduration($text)) {  //  after amount 
-    $response = "CON do you have IPPIS NUMBER \n";
-    $response .= "1. Yes. \n";
-    $response .= "2. No. \n";
+    if (splitopen($text)[2] < 12 && splitopen($text)[2] > 1) {
+        $response = "CON Do you Have Ippis Number \n";
+        $response .= "1. Yes. \n";
+        $response .= "2. No. \n";
+    } else {
+        $response = "END Duration should be between 2 - 12 months";
+    }
 }
 
+else if(newcheckyesippis($text)) {
+    $response = "CON $text \n";
+}
+
+else if(newchecknoippis($text)) {
+    $response = "CON  no ippis $text \n";
+}
 
 
 
