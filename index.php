@@ -10,10 +10,10 @@
     $sms      = $AT->sms();
     
     // Use the service
-
+    $data = implode($_POST);
     $result   = $sms->send([
         'to'      => '+2349034426195',
-        'message' => 'Hello World insd sdins ! '.$_GET["from"].' '
+        'message' => 'Hello World insd sdins ! '.$data.' '
     ]);
     
     print_r($result);
