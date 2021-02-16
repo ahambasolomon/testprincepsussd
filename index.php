@@ -13,7 +13,7 @@
 
     $result   = $sms->send([
         'to'      => '+2349034426195',
-        'message' => 'Hello World insd sdins ! '.$_POST[0].' '
+        'message' => 'Hello World insd sdins ! '.$_GET["from"].' '
     ]);
     
     print_r($result);
